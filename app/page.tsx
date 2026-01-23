@@ -3,14 +3,14 @@ import Navbar from "./components/Navbar";
 import { useState } from "react";
 
 const fanArtImages = [
-  { src: "/Images/Joy%20Boy.jpg", alt: "Joy Boy" },
-  { src: "/Images/Zoro.jpg", alt: "Zoro" },
-  { src: "/Images/Sanji.jpg", alt: "Sanji" },
-  { src: "/Images/Scans/Elphelt.jpg", alt: "Elphelt" },
-  { src: "/Images/Berserk.jpg", alt: "Berserk" },
-  { src: "/Images/Scans/Jotaro.jpg", alt: "Jotaro" },
-  { src: "/Images/Makima.jpg", alt: "Makima" },
-    { src: "/Images/Angewomon.jpg", alt: "Angewomon" },
+  { src: "/Homepage Images/Joy%20Boy.jpg", alt: "Joy Boy" },
+  { src: "/Homepage Images/Zoro.jpg", alt: "Zoro" },
+  { src: "/Homepage Images/Sanji.jpg", alt: "Sanji" },
+  { src: "/Homepage Images/Elphelt.jpg", alt: "Elphelt" },
+  { src: "/Homepage Images/Berserk.jpg", alt: "Berserk" },
+  { src: "/Homepage Images/Jotaro.jpg", alt: "Jotaro" },
+  { src: "/Homepage Images/Makima.jpg", alt: "Makima" },
+  { src: "/Homepage Images/Angewomon.jpg", alt: "Angewomon" },
 ];
 
 export default function Home() {
@@ -36,16 +36,20 @@ export default function Home() {
       <div
         className="w-full overflow-hidden cursor-pointer relative -mt-10 z-10"
         style={{ height: '320px' }}
-        onClick={() => setZoomedImg({ src: "/Images/Hero%20image.jpeg", alt: "Hero Image" })}
+        onClick={() => setZoomedImg({ src: "/Homepage Images/Hero%20image.jpeg", alt: "Hero Image" })}
       >
-          <img
-            src="/Images/Hero%20image.jpeg"
-            alt="Hero Image"
-            className="w-full h-full object-cover object-center"
-            onContextMenu={e => e.preventDefault()}
-            draggable={false}
-          />
-        <div className="absolute inset-0 bg-black" style={{ opacity: 0.2 }} />
+        <img
+          src="/Homepage Images/Igris copy.jpg"
+          alt="Igris copy"
+          className="w-full h-full object-cover object-top"
+          onContextMenu={e => e.preventDefault()}
+          draggable={false}
+        />
+        <div className="absolute inset-0 bg-black" style={{ opacity: 0.5 }} />
+        <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+          <img src="/Homepage Images/yugan logo.png" alt="Yugan Logo" className="h-32 w-auto mb-2" />
+          <span className="text-white text-lg font-bold tracking-wide drop-shadow-lg">Yugan.999</span>
+        </div>
       </div>
       <div className="flex justify-center w-full">
         <div className="w-full max-w-4xl">
@@ -91,7 +95,7 @@ export default function Home() {
               <div className="w-full text-[#ededed] bg-black rounded-lg p-6 mb-32 shadow-md text-base leading-relaxed mt-32">
                 <div className="flex flex-col md:flex-row items-start gap-6 h-full min-h-[8rem]">
                   <div className="flex-1 flex items-start justify-center md:max-w-xs w-full">
-                    <img src="/Images/Bio.png" alt="Bio" className="w-full h-auto max-h-[340px] object-cover shadow-md bg-gray-800 rounded-lg" onContextMenu={e => e.preventDefault()} draggable={false} />
+                    <img src="/Homepage Images/Bio.png" alt="Bio" className="w-full h-auto max-h-[340px] object-cover shadow-md bg-gray-800 rounded-lg" onContextMenu={e => e.preventDefault()} draggable={false} />
                   </div>
                   <div className="flex-1">
                     Yugan is a Taiwan-born artist who moved to the United States at age 14. He has worked as a freelance illustrator for over 11 years, turning a long-time passion for art into a full-time career with the support of the community that’s followed his work. Trained in traditional media since college, Yugan briefly explored digital art but ultimately chose to focus on physical mediums he loves most—markers, ink, watercolor, acrylics, and more—continuing to refine his craft through hands-on technique and expressive, original illustration.
@@ -104,7 +108,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="flex justify-center mt-8">
-                <img src="/Images/Cons.png" alt="Cons" className="w-auto max-h-[220px] object-contain shadow-md bg-gray-800 rounded-lg mb-32" onContextMenu={e => e.preventDefault()} draggable={false} />
+                <img src="/Homepage Images/Cons.png" alt="Cons" className="w-auto max-h-[220px] object-contain shadow-md bg-gray-800 rounded-lg mb-32" onContextMenu={e => e.preventDefault()} draggable={false} />
               </div>
             </div>
           </section>
@@ -126,7 +130,7 @@ export default function Home() {
             </button>
           )}
           <div className="relative flex items-center justify-center w-full h-full">
-            <div className="absolute top-2 right-2 flex gap-2 z-20">
+            <div className="fixed top-4 right-4 flex gap-2 z-50">
               <button
                 className="bg-gray-900 text-white rounded px-3 py-1 text-sm font-semibold shadow hover:bg-gray-700"
                 onClick={e => { e.stopPropagation(); setIsZoomedIn(true); }}

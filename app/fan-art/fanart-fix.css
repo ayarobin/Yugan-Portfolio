@@ -1,0 +1,16 @@
+/*
+  This CSS will remove any border, box-shadow, or background from images and their containers in the Fan Art grid.
+  It will also ensure there is no bottom border or line from default browser styles or Tailwind resets.
+*/
+.fanart-image-container {
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+.fanart-image-container img {
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  margin-bottom: 0 !important;
+  display: block;
+}
