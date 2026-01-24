@@ -87,7 +87,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="flex justify-end mb-8">
-                <a href="/fan-art.html" className="flex items-center gap-2 bg-gray-800 text-[#ededed] px-4 py-2 rounded shadow-lg mt-2 hover:bg-gray-600 hover:text-teal-300 transition-colors duration-200 group">
+                <a href="/fan-art" className="flex items-center gap-2 bg-gray-800 text-[#ededed] px-4 py-2 rounded shadow-lg mt-2 hover:bg-gray-600 hover:text-teal-300 transition-colors duration-200 group">
                   <span className="transition-colors duration-200 group-hover:text-teal-300">See more</span>
                   <span className="text-xl transition-colors duration-200 group-hover:text-teal-300">→</span>
                 </a>
