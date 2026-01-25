@@ -9,8 +9,7 @@ const fanArtImages = [
   { src: "/Homepage Images/Elphelt.jpg", alt: "Elphelt" },
   { src: "/Homepage Images/Berserk.jpg", alt: "Berserk" },
   { src: "/Homepage Images/Jotaro.jpg", alt: "Jotaro" },
-  { src: "/Homepage Images/Makima.jpg", alt: "Makima" },
-  { src: "/Homepage Images/Angewomon.jpg", alt: "Angewomon" },
+  // Removed Makima and Angewomon
 ];
 
 export default function Home() {
@@ -34,9 +33,9 @@ export default function Home() {
         <Navbar />
       </div>
       <div
-        className="w-full overflow-hidden cursor-pointer relative -mt-10 z-10"
-        style={{ height: '320px' }}
-        onClick={() => setZoomedImg({ src: "/Homepage Images/Hero%20image.jpeg", alt: "Hero Image" })}
+        className="w-full overflow-hidden relative -mt-12 z-10"
+        style={{ height: '360px' }}
+        // Removed onClick to make hero image not interactable
       >
         <img
           src="/Homepage Images/Igris copy.jpg"
@@ -46,9 +45,11 @@ export default function Home() {
           draggable={false}
         />
         <div className="absolute inset-0 bg-black" style={{ opacity: 0.5 }} />
-        <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-          <img src="/Homepage Images/yugan logo.png" alt="Yugan Logo" className="h-32 w-auto mb-2" />
-          <span className="text-white text-lg font-bold tracking-wide drop-shadow-lg">Yugan.999</span>
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="flex flex-col items-center justify-center w-full translate-y-6">
+            <img src="/yugan-logo.png" alt="Yugan Logo" className="h-32 w-auto mb-2" />
+            <span className="text-white text-lg font-bold tracking-wide drop-shadow-lg">Yugan.999</span>
+          </div>
         </div>
       </div>
       <div className="flex justify-center w-full">
