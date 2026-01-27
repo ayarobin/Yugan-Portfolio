@@ -9,8 +9,6 @@ const fanArtImages = [
   { src: "/Homepage Images/Elphelt.jpg", alt: "Elphelt" },
   { src: "/Homepage Images/Berserk.jpg", alt: "Berserk" },
   { src: "/Homepage Images/Jotaro.jpg", alt: "Jotaro" },
-  { src: "/Homepage Images/Makima.jpg", alt: "Makima" },
-  { src: "/Homepage Images/Angewomon.jpg", alt: "Angewomon" },
 ];
 
 export default function Home() {
@@ -45,7 +43,7 @@ export default function Home() {
           onContextMenu={e => e.preventDefault()}
           draggable={false}
         />
-        <div className="absolute inset-0 bg-black" style={{ opacity: 0.5 }} />
+        <div className="absolute inset-0 bg-black" style={{ opacity: 0.7 }} />
         <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
           <img src="/Homepage Images/yugan logo.png" alt="Yugan Logo" className="h-32 w-auto mb-2" />
           <span className="text-white text-lg font-bold tracking-wide drop-shadow-lg">Yugan.999</span>
@@ -131,20 +129,7 @@ export default function Home() {
           )}
           <div className="relative flex items-center justify-center w-full h-full">
             <div className="fixed top-4 right-4 flex gap-2 z-50">
-              <button
-                className="bg-gray-900 text-white rounded px-3 py-1 text-sm font-semibold shadow hover:bg-gray-700"
-                onClick={e => { e.stopPropagation(); setIsZoomedIn(true); }}
-                disabled={isZoomedIn}
-              >
-                Zoom In
-              </button>
-              <button
-                className="bg-gray-900 text-white rounded px-3 py-1 text-sm font-semibold shadow hover:bg-gray-700"
-                onClick={e => { e.stopPropagation(); setIsZoomedIn(false); }}
-                disabled={!isZoomedIn}
-              >
-                Zoom Out
-              </button>
+              {/* Zoom In/Zoom Out buttons hidden as requested */}
               <button
                 className="bg-gray-900 text-white rounded-full w-8 h-8 flex items-center justify-center text-xl hover:bg-gray-700 ml-2"
                 onClick={() => { setZoomedImg(null); setIsZoomedIn(false); }}

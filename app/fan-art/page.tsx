@@ -94,20 +94,7 @@ export default function FanArtPage() {
             )}
             <div className="relative flex items-center justify-center w-full h-full">
               <div className="fixed top-4 right-4 flex gap-2 z-50">
-                <button
-                  className="bg-gray-900 text-white rounded px-3 py-1 text-sm font-semibold shadow hover:bg-gray-700"
-                  onClick={e => { e.stopPropagation(); setIsZoomedIn(true); }}
-                  disabled={isZoomedIn}
-                >
-                  Zoom In
-                </button>
-                <button
-                  className="bg-gray-900 text-white rounded px-3 py-1 text-sm font-semibold shadow hover:bg-gray-700"
-                  onClick={e => { e.stopPropagation(); setIsZoomedIn(false); }}
-                  disabled={!isZoomedIn}
-                >
-                  Zoom Out
-                </button>
+                {/* Zoom In/Zoom Out buttons hidden as requested */}
                 <button
                   className="bg-gray-900 text-white rounded-full w-8 h-8 flex items-center justify-center text-xl hover:bg-gray-700 ml-2"
                   onClick={() => { setZoomedImg(null); setIsZoomedIn(false); }}
