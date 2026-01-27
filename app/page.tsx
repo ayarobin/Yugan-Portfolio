@@ -1,6 +1,10 @@
 "use client";
+import * as React from "react";
 import Navbar from "./components/Navbar";
 import { useState } from "react";
+import type {} from 'react';
+import type {} from 'react/jsx-runtime';
+import ReactJSX from 'react/jsx-runtime';
 
 const fanArtImages = [
   { src: "/Homepage Images/Joy%20Boy.jpg", alt: "Joy Boy" },
@@ -9,7 +13,9 @@ const fanArtImages = [
   { src: "/Homepage Images/Elphelt.jpg", alt: "Elphelt" },
   { src: "/Homepage Images/Berserk.jpg", alt: "Berserk" },
   { src: "/Homepage Images/Jotaro.jpg", alt: "Jotaro" },
+  // Removed Makima and Angewomon
 ];
+
 
 export default function Home() {
   const [zoomedImg, setZoomedImg] = useState<{ src: string; alt: string } | null>(null);
@@ -32,9 +38,9 @@ export default function Home() {
         <Navbar />
       </div>
       <div
-        className="w-full overflow-hidden cursor-pointer relative -mt-10 z-10"
-        style={{ height: '320px' }}
-        onClick={() => setZoomedImg({ src: "/Homepage Images/Hero%20image.jpeg", alt: "Hero Image" })}
+        className="w-full overflow-hidden relative -mt-12 z-10"
+        style={{ height: '360px' }}
+        // Removed onClick to make hero image not interactable
       >
         <img
           src="/Homepage Images/Igris copy.jpg"
@@ -43,10 +49,10 @@ export default function Home() {
           onContextMenu={e => e.preventDefault()}
           draggable={false}
         />
-        <div className="absolute inset-0 bg-black" style={{ opacity: 0.7 }} />
-        <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-          <img src="/Homepage Images/yugan logo.png" alt="Yugan Logo" className="h-32 w-auto mb-2" />
-          <span className="text-white text-lg font-bold tracking-wide drop-shadow-lg">Yugan.999</span>
+
+
+
+
         </div>
       </div>
       <div className="flex justify-center w-full">
