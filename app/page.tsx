@@ -34,29 +34,25 @@ export default function Home() {
 
   return (
     <main>
-      <div className="relative z-20">
-        <Navbar />
-      </div>
-      <div
-        className="w-full overflow-hidden relative -mt-12 z-10"
-        style={{ height: '360px' }}
-        // Removed onClick to make hero image not interactable
-      >
-        <img
-          src="/Homepage Images/Igris copy.jpg"
-          alt="Igris copy"
-          className="w-full h-full object-cover object-top"
-          onContextMenu={e => e.preventDefault()}
-          draggable={false}
-        />
-
-
-
-
+      <div>
+        <div className="relative z-20">
+          <Navbar />
         </div>
-      </div>
-      <div className="flex justify-center w-full">
-        <div className="w-full max-w-4xl">
+        <div
+          className="w-full overflow-hidden relative -mt-12 z-10"
+          style={{ height: '360px' }}
+          // Removed onClick to make hero image not interactable
+        >
+          <img
+            src="/Homepage Images/Igris copy.jpg"
+            alt="Igris copy"
+            className="w-full h-full object-cover object-top"
+            onContextMenu={e => e.preventDefault()}
+            draggable={false}
+          />
+        </div>
+        <div className="flex justify-center w-full">
+          <div className="w-full max-w-4xl">
           {/*
             <h3 className="text-2xl font-bold mb-2 mt-20">Original Art</h3>
             <div className="flex flex-col sm:flex-row gap-4 mb-2">
@@ -116,6 +112,7 @@ export default function Home() {
               </div>
             </div>
           </section>
+        </div>
         </div>
       </div>
       {zoomedImg && (
