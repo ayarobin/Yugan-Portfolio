@@ -40,8 +40,7 @@ export default function Home() {
         </div>
         <div
           className="w-full overflow-hidden relative -mt-12 z-10"
-          style={{ height: '360px' }}
-          // Removed onClick to make hero image not interactable
+          style={{ height: '460px' }}
         >
           <img
             src="/Homepage Images/Igris copy.jpg"
@@ -49,6 +48,26 @@ export default function Home() {
             className="w-full h-full object-cover object-top"
             onContextMenu={e => e.preventDefault()}
             draggable={false}
+          />
+          {/* Yugan Logo centered in hero section */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
+            <div className="flex flex-col items-center w-40" style={{ maxWidth: '160px' }}>
+              <img
+                src="/yugan-logo.png"
+                alt="Yugan Logo"
+                className="w-40 h-40 object-contain drop-shadow-lg"
+                style={{ maxWidth: '160px', maxHeight: '160px' }}
+                draggable={false}
+              />
+              <span className="block text-white text-center font-bold text-2xl mt-2 w-full" style={{ letterSpacing: '0.05em' }}>
+                Yugan.999
+              </span>
+            </div>
+          </div>
+          {/* Dark overlay */}
+          <div
+            className="absolute inset-0 bg-black"
+            style={{ opacity: 0.6, pointerEvents: 'none', zIndex: 10 }}
           />
         </div>
         <div className="flex justify-center w-full">
