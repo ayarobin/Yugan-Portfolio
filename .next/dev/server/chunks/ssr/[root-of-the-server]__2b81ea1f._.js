@@ -102,42 +102,42 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 ;
 const scanImages = [
     // Fan Art 1
-    "/fan-art-1/ABA.jpg",
-    "/fan-art-1/Ace.jpg",
-    "/fan-art-1/Angewomon.jpg",
-    "/fan-art-1/Baiken GGST.jpg",
-    "/fan-art-1/Baiken.jpg",
-    "/fan-art-1/Bomb Devil.jpg",
-    "/fan-art-1/Chipp.jpg",
-    "/fan-art-1/DanDaDan.jpg",
-    "/fan-art-1/Elphelt.jpg",
-    "/fan-art-1/Frieren.jpg",
-    "/fan-art-1/Gachiakuta.jpg",
-    "/fan-art-1/Makima.jpg",
-    "/fan-art-1/Trunks.jpg",
+    "/Fan Art 1/ABA.jpg",
+    "/Fan Art 1/Ace.jpg",
+    "/Fan Art 1/Angewomon.jpg",
+    "/Fan Art 1/Baiken GGST.jpg",
+    "/Fan Art 1/Baiken.jpg",
+    "/Fan Art 1/Bomb Devil.jpg",
+    "/Fan Art 1/Chipp.jpg",
+    "/Fan Art 1/DanDaDan.jpg",
+    "/Fan Art 1/Elphelt.jpg",
+    "/Fan Art 1/Frieren.jpg",
+    "/Fan Art 1/Gachiakuta.jpg",
+    "/Fan Art 1/Makima.jpg",
+    "/Fan Art 1/Trunks.jpg",
     // Fan Art 2
-    "/fan-art-2/Deku & Bakugo.jpg",
-    "/fan-art-2/Igris.jpg",
-    "/fan-art-2/Ino.jpg",
-    "/fan-art-2/Jane.jpg",
-    "/fan-art-2/Jotaro.jpg",
-    "/fan-art-2/Megumi.jpg",
-    "/fan-art-2/Miyabi.jpg",
-    "/fan-art-2/Obito.jpg",
-    "/fan-art-2/Persona 3.jpg",
-    "/fan-art-2/Persona 5.jpg",
-    "/fan-art-2/Princess Mononoke.jpg",
-    "/fan-art-2/Ramlethal.jpg",
+    "/Fan Art 2/Deku & Bakugo.jpg",
+    "/Fan Art 2/Igris.jpg",
+    "/Fan Art 2/Ino.jpg",
+    "/Fan Art 2/Jane.jpg",
+    "/Fan Art 2/Jotaro.jpg",
+    "/Fan Art 2/Megumi.jpg",
+    "/Fan Art 2/Miyabi.jpg",
+    "/Fan Art 2/Obito.jpg",
+    "/Fan Art 2/Persona 3.jpg",
+    "/Fan Art 2/Persona 5.jpg",
+    "/Fan Art 2/Princess Mononoke.jpg",
+    "/Fan Art 2/Ramlethal.jpg",
     // Fan Art 3
-    "/fan-art-3/Shikamaru.jpg",
-    "/fan-art-3/Shinobu.jpg",
-    "/fan-art-3/Sol Badguy.jpg",
-    "/fan-art-3/Soul Eater.jpg",
-    "/fan-art-3/Tengen.jpg",
-    "/fan-art-3/Trigun.jpg",
-    "/fan-art-3/Unohana.jpg",
-    "/fan-art-3/Vasto Lorde.jpg",
-    "/fan-art-3/Yuta.jpg"
+    "/Fan Art 3/Shikamaru.jpg",
+    "/Fan Art 3/Shinobu.jpg",
+    "/Fan Art 3/Sol Badguy.jpg",
+    "/Fan Art 3/Soul Eater.jpg",
+    "/Fan Art 3/Tengen.jpg",
+    "/Fan Art 3/Trigun.jpg",
+    "/Fan Art 3/Unohana.jpg",
+    "/Fan Art 3/Vasto Lorde.jpg",
+    "/Fan Art 3/Yuta.jpg"
 ];
 function FanArtPage() {
     const [zoomedImg, setZoomedImg] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
@@ -274,15 +274,38 @@ function FanArtPage() {
                                         className: "flex flex-col items-center",
                                         onClick: (e)=>e.stopPropagation(),
                                         children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                                src: zoomedImg,
-                                                alt: (zoomedImg.split("/").pop() || "").replace(/\.[^/.]+$/, ""),
-                                                className: isZoomedIn ? "w-[1600px] h-auto rounded shadow-lg" : "max-w-[90vw] max-h-[80vh] rounded shadow-lg",
-                                                style: {
-                                                    objectFit: 'contain'
-                                                },
-                                                onContextMenu: (e)=>e.preventDefault(),
-                                                draggable: false
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: isZoomedIn ? "overflow-auto max-h-[80vh] flex justify-center" : "flex justify-center",
+                                                style: isZoomedIn ? {
+                                                    WebkitOverflowScrolling: 'touch',
+                                                    maxWidth: '90vw'
+                                                } : {},
+                                                onClick: (e)=>e.stopPropagation(),
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                                    src: zoomedImg,
+                                                    alt: (zoomedImg.split("/").pop() || "").replace(/\.[^/.]+$/, ""),
+                                                    className: isZoomedIn ? "rounded shadow-lg cursor-zoom-out hover:cursor-[url('/Icons/magnifier.svg'),zoom-out]" : "max-w-[90vw] max-h-[80vh] rounded shadow-lg cursor-zoom-in hover:cursor-[url('/Icons/magnifier.svg'),zoom-in]",
+                                                    style: isZoomedIn ? {
+                                                        maxHeight: '80vh',
+                                                        maxWidth: '100%',
+                                                        height: 'auto',
+                                                        width: 'auto',
+                                                        display: 'block',
+                                                        objectFit: 'contain'
+                                                    } : {
+                                                        objectFit: 'contain'
+                                                    },
+                                                    onClick: (e)=>{
+                                                        e.stopPropagation();
+                                                        setIsZoomedIn((z)=>!z);
+                                                    },
+                                                    onContextMenu: (e)=>e.preventDefault(),
+                                                    draggable: false
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/fan-art/page.tsx",
+                                                    lineNumber: 112,
+                                                    columnNumber: 19
+                                                }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/app/fan-art/page.tsx",
                                                 lineNumber: 107,
@@ -293,7 +316,7 @@ function FanArtPage() {
                                                 children: (zoomedImg.split("/").pop() || "").replace(/\.[^/.]+$/, "")
                                             }, void 0, false, {
                                                 fileName: "[project]/app/fan-art/page.tsx",
-                                                lineNumber: 115,
+                                                lineNumber: 132,
                                                 columnNumber: 17
                                             }, this)
                                         ]
@@ -320,12 +343,12 @@ function FanArtPage() {
                                     children: "→"
                                 }, void 0, false, {
                                     fileName: "[project]/app/fan-art/page.tsx",
-                                    lineNumber: 126,
+                                    lineNumber: 143,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/fan-art/page.tsx",
-                                lineNumber: 121,
+                                lineNumber: 138,
                                 columnNumber: 15
                             }, this)
                         ]

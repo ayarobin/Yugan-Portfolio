@@ -520,26 +520,40 @@ function Home() {
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                         src: zoomedImg.src,
                                         alt: zoomedImg.alt,
-                                        className: isZoomedIn ? "w-[1600px] h-auto rounded shadow-lg" : "max-w-[90vw] max-h-[80vh] rounded shadow-lg",
+                                        draggable: false,
                                         onContextMenu: (e)=>e.preventDefault(),
-                                        draggable: false
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/page.tsx",
-                                        lineNumber: 164,
-                                        columnNumber: 15
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "mt-3 px-3 py-1 bg-black bg-opacity-60 text-white text-lg rounded pointer-events-none z-[9999] text-center",
-                                        children: zoomedImg?.alt || (zoomedImg?.src ? zoomedImg.src.split('/').pop()?.replace(/\..+$/, "") : "")
+                                        onClick: (e)=>{
+                                            e.stopPropagation();
+                                            setIsZoomedIn((z)=>!z);
+                                        },
+                                        className: `
+                  max-w-[90vw]
+                  max-h-[80vh]
+                  rounded
+                  shadow-lg
+                  transition-transform
+                  duration-300
+                  ease-out
+                  ${isZoomedIn ? "scale-[1.8] cursor-zoom-out" : "scale-100 cursor-zoom-in"}
+                  hover:cursor-[url('/Icons/magnifier.svg'),zoom-in]
+                `
                                     }, void 0, false, {
                                         fileName: "[project]/app/page.tsx",
                                         lineNumber: 171,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "mt-3 px-3 py-1 bg-black/60 text-white text-lg rounded pointer-events-none z-[9999] text-center",
+                                        children: zoomedImg?.alt || zoomedImg?.src?.split("/").pop()?.replace(/\..+$/, "")
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/page.tsx",
+                                        lineNumber: 194,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/page.tsx",
-                                lineNumber: 163,
+                                lineNumber: 165,
                                 columnNumber: 13
                             }, this)
                         ]
@@ -560,12 +574,12 @@ function Home() {
                             children: "→"
                         }, void 0, false, {
                             fileName: "[project]/app/page.tsx",
-                            lineNumber: 182,
+                            lineNumber: 208,
                             columnNumber: 15
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/page.tsx",
-                        lineNumber: 177,
+                        lineNumber: 203,
                         columnNumber: 13
                     }, this)
                 ]

@@ -1,10 +1,10 @@
 "use client";
+
+import { useState } from "react";
 import Navbar from "../components/Navbar";
 import "./fanart-fix.css";
-import { useState } from "react";
 
 const scanImages = [
-  // Fan Art 1
   "/Fan Art 1/ABA.jpg",
   "/Fan Art 1/Ace.jpg",
   "/Fan Art 1/Angewomon.jpg",
@@ -18,7 +18,6 @@ const scanImages = [
   "/Fan Art 1/Gachiakuta.jpg",
   "/Fan Art 1/Makima.jpg",
   "/Fan Art 1/Trunks.jpg",
-  // Fan Art 2
   "/Fan Art 2/Deku & Bakugo.jpg",
   "/Fan Art 2/Igris.jpg",
   "/Fan Art 2/Ino.jpg",
@@ -31,7 +30,6 @@ const scanImages = [
   "/Fan Art 2/Persona 5.jpg",
   "/Fan Art 2/Princess Mononoke.jpg",
   "/Fan Art 2/Ramlethal.jpg",
-  // Fan Art 3
   "/Fan Art 3/Shikamaru.jpg",
   "/Fan Art 3/Shinobu.jpg",
   "/Fan Art 3/Sol Badguy.jpg",
@@ -40,92 +38,140 @@ const scanImages = [
   "/Fan Art 3/Trigun.jpg",
   "/Fan Art 3/Unohana.jpg",
   "/Fan Art 3/Vasto Lorde.jpg",
-  "/Fan Art 3/Yuta.jpg",
+  "/Fan Art 3/Yuta.jpg"
 ];
 
 export default function FanArtPage() {
   const [zoomedImg, setZoomedImg] = useState<string | null>(null);
   const [isZoomedIn, setIsZoomedIn] = useState(false);
-  const currentIdx = zoomedImg ? scanImages.findIndex(img => img === zoomedImg) : -1;
+
+  const currentIdx = zoomedImg
+    ? scanImages.findIndex(img => img === zoomedImg)
+    : -1;
+
   const showPrev = currentIdx > 0;
-  const showNext = currentIdx < scanImages.length - 1 && currentIdx !== -1;
-  const handlePrev = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.stopPropagation();
-    if (showPrev) setZoomedImg(scanImages[currentIdx - 1]);
+  const showNext = currentIdx < scanImages.length - 1;
+
+  const closeModal = () => {
+    setZoomedImg(null);
+    setIsZoomedIn(false);
   };
-  const handleNext = (e: React.MouseEvent<HTMLButtonElement>) => {
+
+  const handlePrev = (e: React.MouseEvent) => {
     e.stopPropagation();
-    if (showNext) setZoomedImg(scanImages[currentIdx + 1]);
+    if (showPrev) {
+      setZoomedImg(scanImages[currentIdx - 1]);
+      setIsZoomedIn(false);
+    }
+  };
+
+  const handleNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (showNext) {
+      setZoomedImg(scanImages[currentIdx + 1]);
+      setIsZoomedIn(false);
+    }
   };
 
   return (
     <>
       <Navbar />
+
       <main className="p-8 mt-12">
-        <h1 className="text-3xl font-bold mb-4">Fan Art</h1>
+        <h1 className="text-3xl font-bold mb-6">Fan Art</h1>
+
+        {/* GRID */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {scanImages.map((img) => {
-            const fileNameWithExt = img.split("/").pop() || "";
-            const fileName = fileNameWithExt.replace(/\.[^/.]+$/, "");
+          {scanImages.map(img => {
+            const name =
+              img.split("/").pop()?.replace(/\.[^/.]+$/, "") ?? "";
+
             return (
-              <div key={img} className="bg-gray-700 w-full aspect-[3/4] shadow-lg flex flex-col items-center justify-start overflow-hidden cursor-pointer fanart-image-container rounded" onClick={() => setZoomedImg(img)}>
-                <div className="w-full h-full flex items-center justify-center overflow-hidden fanart-image-container">
-                  <img src={img} alt={fileName} className="w-full h-full object-cover fanart-image-container rounded" />
-                </div>
-                <span className="mt-2 text-white text-sm bg-black bg-opacity-60 rounded px-2 py-1 pointer-events-none select-none text-center w-full truncate" title={fileName}>{fileName}</span>
+              <div
+                key={img}
+                className="bg-gray-700 aspect-[3/4] rounded shadow-lg overflow-hidden cursor-pointer"
+                onClick={() => setZoomedImg(img)}
+              >
+                <img
+                  src={img}
+                  alt={name}
+                  className="w-full h-full object-cover"
+                  draggable={false}
+                  onContextMenu={e => e.preventDefault()}
+                />
+                <span className="block text-white text-sm bg-black/60 px-2 py-1 text-center truncate">
+                  {name}
+                </span>
               </div>
             );
           })}
         </div>
+
+        {/* MODAL */}
         {zoomedImg && (
           <div
-            className="fixed inset-0 flex items-center justify-center z-50 overflow-auto"
-            style={{ background: "rgba(0,0,0,0.95)" }}
-            onClick={() => { setZoomedImg(null); setIsZoomedIn(false); }}
+            className="fixed inset-0 z-50 bg-black/95"
+            onClick={closeModal}
           >
+            {/* TITLE */}
+            <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50">
+              <span className="px-4 py-2 bg-black/60 text-white text-lg rounded">
+                {zoomedImg.split("/").pop()?.replace(/\.[^/.]+$/, "")}
+              </span>
+            </div>
+
+            {/* CLOSE */}
+            <button
+              className="fixed top-4 right-4 z-50 bg-gray-900 text-white rounded-full w-8 h-8 text-xl hover:bg-gray-700"
+              onClick={e => {
+                e.stopPropagation();
+                closeModal();
+              }}
+            >
+              ×
+            </button>
+
+            {/* PREV / NEXT */}
             {showPrev && (
               <button
-                className="absolute left-8 top-1/2 -translate-y-1/2 bg-gray-900 text-white rounded-full w-12 h-12 flex items-center justify-center text-3xl hover:bg-gray-700 z-10"
+                className="fixed left-8 top-1/2 -translate-y-1/2 z-50 bg-gray-900 text-white rounded-full w-12 h-12 text-3xl hover:bg-gray-700"
                 onClick={handlePrev}
-                aria-label="Previous image"
               >
-                <span className="flex items-center justify-center w-full h-full" style={{marginTop: '-4px'}}>&#8592;</span>
+                ←
               </button>
             )}
-            <div className="relative flex items-center justify-center w-full h-full">
-              <div className="fixed top-4 right-4 flex gap-2 z-50">
-                {/* Zoom In/Zoom Out buttons hidden as requested */}
-                <button
-                  className="bg-gray-900 text-white rounded-full w-8 h-8 flex items-center justify-center text-xl hover:bg-gray-700 ml-2"
-                  onClick={() => { setZoomedImg(null); setIsZoomedIn(false); }}
-                  aria-label="Close"
-                >
-                  ×
-                </button>
-              </div>
-              <div className="flex flex-col items-center" onClick={e => e.stopPropagation()}>
-                <img
-                  src={zoomedImg}
-                  alt={(zoomedImg.split("/").pop() || "").replace(/\.[^/.]+$/, "")}
-                  className={isZoomedIn ? "w-[1600px] h-auto rounded shadow-lg" : "max-w-[90vw] max-h-[80vh] rounded shadow-lg"}
-                  style={{objectFit: 'contain'}}
-                  onContextMenu={e => e.preventDefault()}
-                  draggable={false}
-                />
-                <span className="mt-3 px-3 py-1 bg-black bg-opacity-60 text-white text-lg rounded pointer-events-none z-[9999] text-center">
-                  {(zoomedImg.split("/").pop() || "").replace(/\.[^/.]+$/, "")}
-                </span>
-              </div>
-            </div>
+
             {showNext && (
               <button
-                className="absolute right-8 top-1/2 -translate-y-1/2 bg-gray-900 text-white rounded-full w-12 h-12 flex items-center justify-center text-3xl hover:bg-gray-700 z-10"
+                className="fixed right-8 top-1/2 -translate-y-1/2 z-50 bg-gray-900 text-white rounded-full w-12 h-12 text-3xl hover:bg-gray-700"
                 onClick={handleNext}
-                aria-label="Next image"
               >
-                <span className="flex items-center justify-center w-full h-full" style={{marginTop: '-4px'}}>&#8594;</span>
+                →
               </button>
             )}
+
+            {/* SCROLL AREA */}
+            <div
+              className="absolute inset-0 overflow-auto"
+              onClick={e => e.stopPropagation()}
+            >
+              <div className="flex justify-center p-24">
+                <img
+                  src={zoomedImg}
+                  alt=""
+                  draggable={false}
+                  onContextMenu={e => e.preventDefault()}
+                  onClick={() => setIsZoomedIn(z => !z)}
+                  className={`
+                    rounded shadow-lg
+                    ${isZoomedIn
+                      ? "w-[2000px] cursor-zoom-out"
+                      : "max-w-[90vw] max-h-[80vh] cursor-zoom-in"}
+                    hover:cursor-[url('/Icons/magnifier.svg'),zoom-in]
+                  `}
+                />
+              </div>
+            </div>
           </div>
         )}
       </main>

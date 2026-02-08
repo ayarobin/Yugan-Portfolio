@@ -82,8 +82,8 @@ __turbopack_context__.s([
     ()=>FanArtPage
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$Navbar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/components/Navbar.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$Navbar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/components/Navbar.tsx [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 "use client";
@@ -91,43 +91,40 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 const scanImages = [
-    // Fan Art 1
-    "/fan-art-1/ABA.jpg",
-    "/fan-art-1/Ace.jpg",
-    "/fan-art-1/Angewomon.jpg",
-    "/fan-art-1/Baiken GGST.jpg",
-    "/fan-art-1/Baiken.jpg",
-    "/fan-art-1/Bomb Devil.jpg",
-    "/fan-art-1/Chipp.jpg",
-    "/fan-art-1/DanDaDan.jpg",
-    "/fan-art-1/Elphelt.jpg",
-    "/fan-art-1/Frieren.jpg",
-    "/fan-art-1/Gachiakuta.jpg",
-    "/fan-art-1/Makima.jpg",
-    "/fan-art-1/Trunks.jpg",
-    // Fan Art 2
-    "/fan-art-2/Deku & Bakugo.jpg",
-    "/fan-art-2/Igris.jpg",
-    "/fan-art-2/Ino.jpg",
-    "/fan-art-2/Jane.jpg",
-    "/fan-art-2/Jotaro.jpg",
-    "/fan-art-2/Megumi.jpg",
-    "/fan-art-2/Miyabi.jpg",
-    "/fan-art-2/Obito.jpg",
-    "/fan-art-2/Persona 3.jpg",
-    "/fan-art-2/Persona 5.jpg",
-    "/fan-art-2/Princess Mononoke.jpg",
-    "/fan-art-2/Ramlethal.jpg",
-    // Fan Art 3
-    "/fan-art-3/Shikamaru.jpg",
-    "/fan-art-3/Shinobu.jpg",
-    "/fan-art-3/Sol Badguy.jpg",
-    "/fan-art-3/Soul Eater.jpg",
-    "/fan-art-3/Tengen.jpg",
-    "/fan-art-3/Trigun.jpg",
-    "/fan-art-3/Unohana.jpg",
-    "/fan-art-3/Vasto Lorde.jpg",
-    "/fan-art-3/Yuta.jpg"
+    "/Fan Art 1/ABA.jpg",
+    "/Fan Art 1/Ace.jpg",
+    "/Fan Art 1/Angewomon.jpg",
+    "/Fan Art 1/Baiken GGST.jpg",
+    "/Fan Art 1/Baiken.jpg",
+    "/Fan Art 1/Bomb Devil.jpg",
+    "/Fan Art 1/Chipp.jpg",
+    "/Fan Art 1/DanDaDan.jpg",
+    "/Fan Art 1/Elphelt.jpg",
+    "/Fan Art 1/Frieren.jpg",
+    "/Fan Art 1/Gachiakuta.jpg",
+    "/Fan Art 1/Makima.jpg",
+    "/Fan Art 1/Trunks.jpg",
+    "/Fan Art 2/Deku & Bakugo.jpg",
+    "/Fan Art 2/Igris.jpg",
+    "/Fan Art 2/Ino.jpg",
+    "/Fan Art 2/Jane.jpg",
+    "/Fan Art 2/Jotaro.jpg",
+    "/Fan Art 2/Megumi.jpg",
+    "/Fan Art 2/Miyabi.jpg",
+    "/Fan Art 2/Obito.jpg",
+    "/Fan Art 2/Persona 3.jpg",
+    "/Fan Art 2/Persona 5.jpg",
+    "/Fan Art 2/Princess Mononoke.jpg",
+    "/Fan Art 2/Ramlethal.jpg",
+    "/Fan Art 3/Shikamaru.jpg",
+    "/Fan Art 3/Shinobu.jpg",
+    "/Fan Art 3/Sol Badguy.jpg",
+    "/Fan Art 3/Soul Eater.jpg",
+    "/Fan Art 3/Tengen.jpg",
+    "/Fan Art 3/Trigun.jpg",
+    "/Fan Art 3/Unohana.jpg",
+    "/Fan Art 3/Vasto Lorde.jpg",
+    "/Fan Art 3/Yuta.jpg"
 ];
 function FanArtPage() {
     _s();
@@ -135,200 +132,172 @@ function FanArtPage() {
     const [isZoomedIn, setIsZoomedIn] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const currentIdx = zoomedImg ? scanImages.findIndex((img)=>img === zoomedImg) : -1;
     const showPrev = currentIdx > 0;
-    const showNext = currentIdx < scanImages.length - 1 && currentIdx !== -1;
+    const showNext = currentIdx < scanImages.length - 1;
+    const closeModal = ()=>{
+        setZoomedImg(null);
+        setIsZoomedIn(false);
+    };
     const handlePrev = (e)=>{
         e.stopPropagation();
-        if (showPrev) setZoomedImg(scanImages[currentIdx - 1]);
+        if (showPrev) {
+            setZoomedImg(scanImages[currentIdx - 1]);
+            setIsZoomedIn(false);
+        }
     };
     const handleNext = (e)=>{
         e.stopPropagation();
-        if (showNext) setZoomedImg(scanImages[currentIdx + 1]);
+        if (showNext) {
+            setZoomedImg(scanImages[currentIdx + 1]);
+            setIsZoomedIn(false);
+        }
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$Navbar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/app/fan-art/page.tsx",
-                lineNumber: 63,
+                lineNumber: 78,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
                 className: "p-8 mt-12",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                        className: "text-3xl font-bold mb-4",
+                        className: "text-3xl font-bold mb-6",
                         children: "Fan Art"
                     }, void 0, false, {
                         fileName: "[project]/app/fan-art/page.tsx",
-                        lineNumber: 65,
+                        lineNumber: 81,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6",
                         children: scanImages.map((img)=>{
-                            const fileNameWithExt = img.split("/").pop() || "";
-                            const fileName = fileNameWithExt.replace(/\.[^/.]+$/, "");
+                            const name = img.split("/").pop()?.replace(/\.[^/.]+$/, "") ?? "";
                             return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "bg-gray-700 w-full aspect-[3/4] shadow-lg flex flex-col items-center justify-start overflow-hidden cursor-pointer fanart-image-container rounded",
+                                className: "bg-gray-700 aspect-[3/4] rounded shadow-lg overflow-hidden cursor-pointer",
                                 onClick: ()=>setZoomedImg(img),
                                 children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "w-full h-full flex items-center justify-center overflow-hidden fanart-image-container",
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                            src: img,
-                                            alt: fileName,
-                                            className: "w-full h-full object-cover fanart-image-container rounded"
-                                        }, void 0, false, {
-                                            fileName: "[project]/app/fan-art/page.tsx",
-                                            lineNumber: 73,
-                                            columnNumber: 19
-                                        }, this)
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                        src: img,
+                                        alt: name,
+                                        className: "w-full h-full object-cover",
+                                        draggable: false,
+                                        onContextMenu: (e)=>e.preventDefault()
                                     }, void 0, false, {
                                         fileName: "[project]/app/fan-art/page.tsx",
-                                        lineNumber: 72,
+                                        lineNumber: 95,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "mt-2 text-white text-sm bg-black bg-opacity-60 rounded px-2 py-1 pointer-events-none select-none text-center w-full truncate",
-                                        title: fileName,
-                                        children: fileName
+                                        className: "block text-white text-sm bg-black/60 px-2 py-1 text-center truncate",
+                                        children: name
                                     }, void 0, false, {
                                         fileName: "[project]/app/fan-art/page.tsx",
-                                        lineNumber: 75,
+                                        lineNumber: 102,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, img, true, {
                                 fileName: "[project]/app/fan-art/page.tsx",
-                                lineNumber: 71,
+                                lineNumber: 90,
                                 columnNumber: 15
                             }, this);
                         })
                     }, void 0, false, {
                         fileName: "[project]/app/fan-art/page.tsx",
-                        lineNumber: 66,
+                        lineNumber: 84,
                         columnNumber: 9
                     }, this),
                     zoomedImg && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "fixed inset-0 flex items-center justify-center z-50 overflow-auto",
-                        style: {
-                            background: "rgba(0,0,0,0.95)"
-                        },
-                        onClick: ()=>{
-                            setZoomedImg(null);
-                            setIsZoomedIn(false);
-                        },
+                        className: "fixed inset-0 z-50 bg-black/95",
+                        onClick: closeModal,
                         children: [
-                            showPrev && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                className: "absolute left-8 top-1/2 -translate-y-1/2 bg-gray-900 text-white rounded-full w-12 h-12 flex items-center justify-center text-3xl hover:bg-gray-700 z-10",
-                                onClick: handlePrev,
-                                "aria-label": "Previous image",
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "fixed top-4 left-1/2 -translate-x-1/2 z-50",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                    className: "flex items-center justify-center w-full h-full",
-                                    style: {
-                                        marginTop: '-4px'
-                                    },
-                                    children: "←"
+                                    className: "px-4 py-2 bg-black/60 text-white text-lg rounded",
+                                    children: zoomedImg.split("/").pop()?.replace(/\.[^/.]+$/, "")
                                 }, void 0, false, {
                                     fileName: "[project]/app/fan-art/page.tsx",
-                                    lineNumber: 92,
-                                    columnNumber: 17
+                                    lineNumber: 118,
+                                    columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/fan-art/page.tsx",
-                                lineNumber: 87,
+                                lineNumber: 117,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                className: "fixed top-4 right-4 z-50 bg-gray-900 text-white rounded-full w-8 h-8 text-xl hover:bg-gray-700",
+                                onClick: (e)=>{
+                                    e.stopPropagation();
+                                    closeModal();
+                                },
+                                children: "×"
+                            }, void 0, false, {
+                                fileName: "[project]/app/fan-art/page.tsx",
+                                lineNumber: 124,
+                                columnNumber: 13
+                            }, this),
+                            showPrev && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                className: "fixed left-8 top-1/2 -translate-y-1/2 z-50 bg-gray-900 text-white rounded-full w-12 h-12 text-3xl hover:bg-gray-700",
+                                onClick: handlePrev,
+                                children: "←"
+                            }, void 0, false, {
+                                fileName: "[project]/app/fan-art/page.tsx",
+                                lineNumber: 136,
+                                columnNumber: 15
+                            }, this),
+                            showNext && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                className: "fixed right-8 top-1/2 -translate-y-1/2 z-50 bg-gray-900 text-white rounded-full w-12 h-12 text-3xl hover:bg-gray-700",
+                                onClick: handleNext,
+                                children: "→"
+                            }, void 0, false, {
+                                fileName: "[project]/app/fan-art/page.tsx",
+                                lineNumber: 145,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "relative flex items-center justify-center w-full h-full",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "fixed top-4 right-4 flex gap-2 z-50",
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                            className: "bg-gray-900 text-white rounded-full w-8 h-8 flex items-center justify-center text-xl hover:bg-gray-700 ml-2",
-                                            onClick: ()=>{
-                                                setZoomedImg(null);
-                                                setIsZoomedIn(false);
-                                            },
-                                            "aria-label": "Close",
-                                            children: "×"
-                                        }, void 0, false, {
-                                            fileName: "[project]/app/fan-art/page.tsx",
-                                            lineNumber: 98,
-                                            columnNumber: 17
-                                        }, this)
+                                className: "absolute inset-0 overflow-auto",
+                                onClick: (e)=>e.stopPropagation(),
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "flex justify-center p-24",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                        src: zoomedImg,
+                                        alt: "",
+                                        draggable: false,
+                                        onContextMenu: (e)=>e.preventDefault(),
+                                        onClick: ()=>setIsZoomedIn((z)=>!z),
+                                        className: `
+                    rounded shadow-lg
+                    ${isZoomedIn ? "w-[2000px] cursor-zoom-out" : "max-w-[90vw] max-h-[80vh] cursor-zoom-in"}
+                    hover:cursor-[url('/Icons/magnifier.svg'),zoom-in]
+                  `
                                     }, void 0, false, {
                                         fileName: "[project]/app/fan-art/page.tsx",
-                                        lineNumber: 96,
-                                        columnNumber: 15
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "flex flex-col items-center",
-                                        onClick: (e)=>e.stopPropagation(),
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                                src: zoomedImg,
-                                                alt: (zoomedImg.split("/").pop() || "").replace(/\.[^/.]+$/, ""),
-                                                className: isZoomedIn ? "w-[1600px] h-auto rounded shadow-lg" : "max-w-[90vw] max-h-[80vh] rounded shadow-lg",
-                                                style: {
-                                                    objectFit: 'contain'
-                                                },
-                                                onContextMenu: (e)=>e.preventDefault(),
-                                                draggable: false
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/fan-art/page.tsx",
-                                                lineNumber: 107,
-                                                columnNumber: 17
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: "mt-3 px-3 py-1 bg-black bg-opacity-60 text-white text-lg rounded pointer-events-none z-[9999] text-center",
-                                                children: (zoomedImg.split("/").pop() || "").replace(/\.[^/.]+$/, "")
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/fan-art/page.tsx",
-                                                lineNumber: 115,
-                                                columnNumber: 17
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/fan-art/page.tsx",
-                                        lineNumber: 106,
-                                        columnNumber: 15
+                                        lineNumber: 159,
+                                        columnNumber: 17
                                     }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/app/fan-art/page.tsx",
-                                lineNumber: 95,
-                                columnNumber: 13
-                            }, this),
-                            showNext && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                className: "absolute right-8 top-1/2 -translate-y-1/2 bg-gray-900 text-white rounded-full w-12 h-12 flex items-center justify-center text-3xl hover:bg-gray-700 z-10",
-                                onClick: handleNext,
-                                "aria-label": "Next image",
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                    className: "flex items-center justify-center w-full h-full",
-                                    style: {
-                                        marginTop: '-4px'
-                                    },
-                                    children: "→"
                                 }, void 0, false, {
                                     fileName: "[project]/app/fan-art/page.tsx",
-                                    lineNumber: 126,
-                                    columnNumber: 17
+                                    lineNumber: 158,
+                                    columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/fan-art/page.tsx",
-                                lineNumber: 121,
-                                columnNumber: 15
+                                lineNumber: 154,
+                                columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/fan-art/page.tsx",
-                        lineNumber: 81,
+                        lineNumber: 112,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/fan-art/page.tsx",
-                lineNumber: 64,
+                lineNumber: 80,
                 columnNumber: 7
             }, this)
         ]
