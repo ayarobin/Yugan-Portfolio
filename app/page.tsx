@@ -87,7 +87,7 @@ export default function Home() {
       </div>
 
       {/* ---------------- FAN ART ---------------- */}
-      <section className="p-8 max-w-4xl mx-auto mt-20">
+      <section className="p-8 max-w-4xl mx-auto mt-20 relative">
         <h3 className="text-2xl font-bold mb-4">Fan Art</h3>
 
         <div className="flex flex-col gap-4">
@@ -113,10 +113,20 @@ export default function Home() {
             )
           )}
         </div>
+
+        {/* See More Button */}
+        <div className="absolute -bottom-8 right-8 z-30">
+          <a
+            href="/fan-art"
+            className="inline-block px-6 py-2 bg-gradient-to-r from-[#181818] via-[#222] to-[#181818] text-[#ededed] rounded-lg shadow-lg hover:bg-[#232323] hover:text-teal-300 transition-colors font-semibold text-base border border-gray-800"
+          >
+            See More
+          </a>
+        </div>
       </section>
 
       {/* ---------------- BIO ---------------- */}
-      <div className="w-full text-[#ededed] bg-black rounded-lg p-6 mb-32 shadow-md text-base leading-relaxed mt-32 max-w-5xl mx-auto">
+      <div className="w-full text-[#ededed] bg-black rounded-lg p-6 mb-32 shadow-md text-base leading-relaxed mt-32 max-w-4xl mx-auto">
         <div className="flex flex-col md:flex-row gap-6">
           <img
             src="/Homepage Images/Bio.png"
@@ -127,19 +137,15 @@ export default function Home() {
           />
           <div>
             Yugan is a Taiwan-born artist who moved to the United States at age 14. He has worked as a freelance illustrator for over 11 years, turning a long-time passion for art into a full-time career with the support of the community that’s followed his work. Trained in traditional media since college, Yugan briefly explored digital art but ultimately chose to focus on physical mediums he loves most—markers, ink, watercolor, acrylics, and more—continuing to refine his craft through hands-on technique and expressive, original illustration.
-            <div className="mt-8">
-              <h4 className="text-lg font-semibold mb-1">Contact Information</h4>
-              <a href="mailto:yugandraws@gmail.com" className="text-teal-300 hover:underline">yugandraws@gmail.com</a>
-            </div>
           </div>
         </div>
       </div>
 
-      <div className="flex justify-center mb-32">
+      <div className="mb-32 max-w-4xl mx-auto">
         <img
           src="/Homepage Images/Cons.png"
           alt="Cons"
-          className="max-h-[220px] rounded-lg shadow-md"
+          className="w-full h-[220px] rounded-2xl shadow-md object-cover block"
           draggable={false}
           onContextMenu={e => e.preventDefault()}
         />
@@ -172,8 +178,10 @@ export default function Home() {
           {/* Prev / Next */}
           {showPrev && (
             <button
-              className="fixed left-8 top-1/2 -translate-y-1/2 z-50 bg-gray-900 text-white rounded-full w-12 h-12 text-3xl hover:bg-gray-700"
+              className="fixed left-8 top-1/2 -translate-y-1/2 z-50 text-white text-4xl hover:text-teal-300 focus:outline-none"
+              style={{ background: "none", border: "none", boxShadow: "none", padding: 0, width: 'auto', height: 'auto' }}
               onClick={handlePrev}
+              aria-label="Previous image"
             >
               ←
             </button>
@@ -181,8 +189,10 @@ export default function Home() {
 
           {showNext && (
             <button
-              className="fixed right-8 top-1/2 -translate-y-1/2 z-50 bg-gray-900 text-white rounded-full w-12 h-12 text-3xl hover:bg-gray-700"
+              className="fixed right-8 top-1/2 -translate-y-1/2 z-50 text-white text-4xl hover:text-teal-300 focus:outline-none"
+              style={{ background: "none", border: "none", boxShadow: "none", padding: 0, width: 'auto', height: 'auto' }}
               onClick={handleNext}
+              aria-label="Next image"
             >
               →
             </button>
@@ -193,7 +203,7 @@ export default function Home() {
             className="absolute inset-0 overflow-auto"
             onClick={e => e.stopPropagation()}
           >
-            <div className="flex items-center justify-center p-24">
+            <div className="relative w-full h-full overflow-auto p-24 flex justify-center">
               <img
                 src={zoomedImg.src}
                 alt={zoomedImg.alt}
@@ -201,10 +211,15 @@ export default function Home() {
                 onContextMenu={e => e.preventDefault()}
                 onClick={() => setIsZoomedIn(z => !z)}
                 className={`
-                  rounded shadow-lg cursor-zoom-in
-                  ${isZoomedIn ? "w-[2000px]" : "max-w-[90vw] max-h-[80vh]"}
-                `}
+    rounded shadow-lg w-auto select-none
+    transition-transform duration-300 ease-out
+    ${isZoomedIn
+      ? "cursor-zoom-out scale-[1.6] origin-top"
+      : "cursor-zoom-in scale-100"}
+    max-w-[100vw] max-h-none
+  `}
               />
+
             </div>
           </div>
         </div>

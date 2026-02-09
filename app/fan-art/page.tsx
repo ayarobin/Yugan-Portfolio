@@ -134,8 +134,10 @@ export default function FanArtPage() {
             {/* PREV / NEXT */}
             {showPrev && (
               <button
-                className="fixed left-8 top-1/2 -translate-y-1/2 z-50 bg-gray-900 text-white rounded-full w-12 h-12 text-3xl hover:bg-gray-700"
+                className="fixed left-8 top-1/2 -translate-y-1/2 z-50 text-white text-4xl hover:text-teal-300 focus:outline-none"
+                style={{ background: "none", border: "none", boxShadow: "none", padding: 0, width: 'auto', height: 'auto' }}
                 onClick={handlePrev}
+                aria-label="Previous image"
               >
                 ←
               </button>
@@ -143,8 +145,10 @@ export default function FanArtPage() {
 
             {showNext && (
               <button
-                className="fixed right-8 top-1/2 -translate-y-1/2 z-50 bg-gray-900 text-white rounded-full w-12 h-12 text-3xl hover:bg-gray-700"
+                className="fixed right-8 top-1/2 -translate-y-1/2 z-50 text-white text-4xl hover:text-teal-300 focus:outline-none"
+                style={{ background: "none", border: "none", boxShadow: "none", padding: 0, width: 'auto', height: 'auto' }}
                 onClick={handleNext}
+                aria-label="Next image"
               >
                 →
               </button>
@@ -155,7 +159,7 @@ export default function FanArtPage() {
               className="absolute inset-0 overflow-auto"
               onClick={e => e.stopPropagation()}
             >
-              <div className="flex justify-center p-24">
+              <div className="relative w-full h-full overflow-auto p-24 flex justify-center">
                 <img
                   src={zoomedImg}
                   alt=""
@@ -163,14 +167,16 @@ export default function FanArtPage() {
                   onContextMenu={e => e.preventDefault()}
                   onClick={() => setIsZoomedIn(z => !z)}
                   className={`
-                    rounded shadow-lg
-                    ${isZoomedIn
-                      ? "w-[2000px] cursor-zoom-out"
-                      : "max-w-[90vw] max-h-[80vh] cursor-zoom-in"}
+                    rounded shadow-lg w-auto select-none
+                    transition-transform duration-300 ease-out
                     hover:cursor-[url('/Icons/magnifier.svg'),zoom-in]
+                    ${isZoomedIn
+                      ? "cursor-zoom-out scale-[1.6] origin-top max-w-[100vw] max-h-none"
+                      : "cursor-zoom-in scale-100 max-w-[90vw] max-h-[80vh]"}
                   `}
                 />
               </div>
+
             </div>
           </div>
         )}

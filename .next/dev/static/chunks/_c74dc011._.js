@@ -240,8 +240,17 @@ function FanArtPage() {
                                 columnNumber: 13
                             }, this),
                             showPrev && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                className: "fixed left-8 top-1/2 -translate-y-1/2 z-50 bg-gray-900 text-white rounded-full w-12 h-12 text-3xl hover:bg-gray-700",
+                                className: "fixed left-8 top-1/2 -translate-y-1/2 z-50 text-white text-4xl hover:text-teal-300 focus:outline-none",
+                                style: {
+                                    background: "none",
+                                    border: "none",
+                                    boxShadow: "none",
+                                    padding: 0,
+                                    width: 'auto',
+                                    height: 'auto'
+                                },
                                 onClick: handlePrev,
+                                "aria-label": "Previous image",
                                 children: "←"
                             }, void 0, false, {
                                 fileName: "[project]/app/fan-art/page.tsx",
@@ -249,19 +258,28 @@ function FanArtPage() {
                                 columnNumber: 15
                             }, this),
                             showNext && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                className: "fixed right-8 top-1/2 -translate-y-1/2 z-50 bg-gray-900 text-white rounded-full w-12 h-12 text-3xl hover:bg-gray-700",
+                                className: "fixed right-8 top-1/2 -translate-y-1/2 z-50 text-white text-4xl hover:text-teal-300 focus:outline-none",
+                                style: {
+                                    background: "none",
+                                    border: "none",
+                                    boxShadow: "none",
+                                    padding: 0,
+                                    width: 'auto',
+                                    height: 'auto'
+                                },
                                 onClick: handleNext,
+                                "aria-label": "Next image",
                                 children: "→"
                             }, void 0, false, {
                                 fileName: "[project]/app/fan-art/page.tsx",
-                                lineNumber: 145,
+                                lineNumber: 147,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "absolute inset-0 overflow-auto",
                                 onClick: (e)=>e.stopPropagation(),
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "flex justify-center p-24",
+                                    className: "relative w-full h-full overflow-auto p-24 flex justify-center",
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                         src: zoomedImg,
                                         alt: "",
@@ -269,23 +287,24 @@ function FanArtPage() {
                                         onContextMenu: (e)=>e.preventDefault(),
                                         onClick: ()=>setIsZoomedIn((z)=>!z),
                                         className: `
-                    rounded shadow-lg
-                    ${isZoomedIn ? "w-[2000px] cursor-zoom-out" : "max-w-[90vw] max-h-[80vh] cursor-zoom-in"}
+                    rounded shadow-lg w-auto select-none
+                    transition-transform duration-300 ease-out
                     hover:cursor-[url('/Icons/magnifier.svg'),zoom-in]
+                    ${isZoomedIn ? "cursor-zoom-out scale-[1.6] origin-top max-w-[100vw] max-h-none" : "cursor-zoom-in scale-100 max-w-[90vw] max-h-[80vh]"}
                   `
                                     }, void 0, false, {
                                         fileName: "[project]/app/fan-art/page.tsx",
-                                        lineNumber: 159,
+                                        lineNumber: 163,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/fan-art/page.tsx",
-                                    lineNumber: 158,
+                                    lineNumber: 162,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/fan-art/page.tsx",
-                                lineNumber: 154,
+                                lineNumber: 158,
                                 columnNumber: 13
                             }, this)
                         ]
