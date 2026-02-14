@@ -174,13 +174,13 @@ function FanArtPage() {
                         children: scanImages.map((img)=>{
                             const name = img.split("/").pop()?.replace(/\.[^/.]+$/, "") ?? "";
                             return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "bg-gray-700 aspect-[3/4] rounded shadow-lg overflow-hidden cursor-pointer",
+                                className: "bg-gray-700 aspect-[3/4] rounded shadow-lg overflow-hidden cursor-pointer fanart-image-container",
                                 onClick: ()=>setZoomedImg(img),
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                         src: img,
                                         alt: name,
-                                        className: "w-full h-full object-cover",
+                                        className: "w-full h-full object-cover fanart-image",
                                         draggable: false,
                                         onContextMenu: (e)=>e.preventDefault()
                                     }, void 0, false, {
@@ -287,7 +287,7 @@ function FanArtPage() {
                                         onContextMenu: (e)=>e.preventDefault(),
                                         onClick: ()=>setIsZoomedIn((z)=>!z),
                                         className: `
-                    rounded shadow-lg w-auto select-none
+                    rounded shadow-lg w-auto h-auto max-w-[90vw] max-h-[80vh] select-none object-contain
                     transition-transform duration-300 ease-out
                     hover:cursor-[url('/Icons/magnifier.svg'),zoom-in]
                     ${isZoomedIn ? "cursor-zoom-out scale-[1.6] origin-top max-w-[100vw] max-h-none" : "cursor-zoom-in scale-100 max-w-[90vw] max-h-[80vh]"}

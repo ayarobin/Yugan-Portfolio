@@ -89,13 +89,13 @@ export default function FanArtPage() {
             return (
               <div
                 key={img}
-                className="bg-gray-700 aspect-[3/4] rounded shadow-lg overflow-hidden cursor-pointer"
+                className="bg-gray-700 aspect-[3/4] rounded shadow-lg overflow-hidden cursor-pointer fanart-image-container"
                 onClick={() => setZoomedImg(img)}
               >
                 <img
                   src={img}
                   alt={name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover fanart-image"
                   draggable={false}
                   onContextMenu={e => e.preventDefault()}
                 />
@@ -167,7 +167,7 @@ export default function FanArtPage() {
                   onContextMenu={e => e.preventDefault()}
                   onClick={() => setIsZoomedIn(z => !z)}
                   className={`
-                    rounded shadow-lg w-auto select-none
+                    rounded shadow-lg w-auto h-auto max-w-[90vw] max-h-[80vh] select-none object-contain
                     transition-transform duration-300 ease-out
                     hover:cursor-[url('/Icons/magnifier.svg'),zoom-in]
                     ${isZoomedIn

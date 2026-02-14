@@ -7,10 +7,15 @@
   box-shadow: none !important;
   background: transparent !important;
 }
-.fanart-image-container img {
+.fanart-image-container img.fanart-image {
   border: none !important;
   box-shadow: none !important;
   background: transparent !important;
   margin-bottom: 0 !important;
   display: block;
+  object-fit: cover !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
 }

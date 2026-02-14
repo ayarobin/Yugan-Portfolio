@@ -5,11 +5,16 @@
   border: none !important;
 }
 
-.fanart-image-container img {
+.fanart-image-container img.fanart-image {
   display: block;
   box-shadow: none !important;
+  object-fit: cover !important;
   background: none !important;
   border: none !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 100% !important;
+  max-height: 100% !important;
   margin-bottom: 0 !important;
 }
 
